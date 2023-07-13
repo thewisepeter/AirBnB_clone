@@ -5,8 +5,8 @@ This module defines the HBNBCommand class, the command interpreter for the AirBn
 
 import cmd
 import sys
-from models import storage
 from models.base_model import BaseModel
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
