@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module defines the BaseModel class for the Airbnb Project.
+This module defines the BaseModel class for Airbnb Project.
 """
 
 import uuid
