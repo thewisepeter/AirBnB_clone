@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This module defines the HBNBCommand class, the command interpreter for the AirBnB clone project.
+This module defines the HBNBCommand class, the
+command interpreter for the AirBnB clone project.
 """
 
 import cmd

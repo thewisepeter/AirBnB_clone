@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#Tests for class Review
+# Tests for class Review
 import unittest
 from models.review import Review
 
@@ -28,6 +28,7 @@ class TestReview(unittest.TestCase):
         self.assertEqual(place.place_id, "123")
         self.assertEqual(place.user_id, "456")
         self.assertEqual(place.text, "Cozy Cabin")
+
 
 if __name__ == '__main__':
     unittest.main()

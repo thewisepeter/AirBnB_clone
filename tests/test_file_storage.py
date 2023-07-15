@@ -33,7 +33,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_save_and_reload(self):
         """test the save and reload methods"""
-        #create instances of various classes
+        # create instances of various classes
 
         user = User()
         place = Place()
@@ -41,7 +41,7 @@ class TestFileStorage(unittest.TestCase):
         amenity = Amenity()
         review = Review()
         state = State()
-        
+
         # Add instances to storage
         self.storage.new(user)
         self.storage.new(place)
@@ -66,17 +66,18 @@ class TestFileStorage(unittest.TestCase):
 
     def test_save_file_exists(self):
         """test if file from save method is exists"""
-        #create instance
+        # create instance
         city = City()
 
-        #add to storage
+        # add to storage
         self.storage.new(city)
 
-        #save to file
+        # save to file
         self.storage.save()
 
-        #check if file exists
+        # check if file exists
         self.assertTrue(os.path.exists(self.storage._FileStorage__file_path))
+
 
 if __name__ == '__main__':
     unittest.main()

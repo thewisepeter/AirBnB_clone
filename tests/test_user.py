@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#test module for class user
+# test module for class user
 import unittest
 from models.base_model import BaseModel
 from models.user import User
@@ -7,14 +7,14 @@ from datetime import datetime, timedelta
 
 
 class TestUser(unittest.TestCase):
-    #Test for the User class
+    # Test for the User class
 
     def test_inheritance(self):
         user = User()
         self.assertIsInstance(user, BaseModel)
 
     def test_attributes(self):
-        #tests instantiation of attributes
+        # tests instantiation of attributes
         user = User()
         self.assertEqual(user.email, "")
         self.assertEqual(user.password, "")
@@ -22,7 +22,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(user.last_name, "")
 
     def test_attribute_assignment(self):
-        #tests if attributes as required
+        # tests if attributes as required
         user = User()
         user.email = "test@alx.com"
         user.password = "password"
@@ -34,7 +34,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(user.last_name, "Bar")
 
     def test_to_dict(self):
-        #tests the to_dict method specified in BaseModel
+        # tests the to_dict method specified in BaseModel
         user = User()
         user.email = "test@alx.com"
         user.password = "password"
@@ -47,9 +47,8 @@ class TestUser(unittest.TestCase):
         self.assertEqual(user_dict["last_name"], "Bar")
         self.assertEqual(user_dict["__class__"], "User")
 
-    
     def setUp(self):
-        #test the __str__ method specified in BaseModel
+        # test the __str__ method specified in BaseModel
         self.user = User()
         self.user.id = "1990"
         self.user.email = "test@alx.com"
@@ -75,9 +74,6 @@ class TestUser(unittest.TestCase):
         self.assertNotEqual(self.user.updated_at, new_updated_at)
         self.assertNotEqual(self.user.updated_at, initial_updated_at)
 
-    """def test_str_representation(self):
-        expected_output = "[User] (1990) {'id': '1990', 'email': 'test@alx.com', 'password': 'password', 'first_name': 'Foo', 'last_name': 'Bar'}"
-        self.assertEqual(str(self.user), expected_output)"""
 
 if __name__ == '__main__':
     unittest.main()

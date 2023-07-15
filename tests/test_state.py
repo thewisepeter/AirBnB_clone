@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#Tests for class State
+# Tests for class State
 import unittest
 from models.state import State
 
@@ -20,6 +20,7 @@ class TestState(unittest.TestCase):
         state = State()
         state.name = "Wisdom"
         self.assertEqual(state.name, "Wisdom")
+
 
 if __name__ == '__main__':
     unittest.main()

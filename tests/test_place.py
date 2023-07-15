@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#Tests for class Place
+# Tests for class Place
 import unittest
 from models.place import Place
 
@@ -59,6 +59,7 @@ class TestCity(unittest.TestCase):
         self.assertEqual(place.latitude, 37.7749)
         self.assertEqual(place.longitude, -122.4194)
         self.assertEqual(place.amenity_ids, ["1", "2", "3"])
+
 
 if __name__ == '__main__':
     unittest.main()
