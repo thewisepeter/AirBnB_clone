@@ -148,7 +148,8 @@ class TestHBNBCommand(unittest.TestCase):
         """
         with patch('sys.stdout', new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("invalid_command"))
-            self.assertEqual(f.getvalue(), "*** Unknown syntax: invalid_command\n")
+            self.assertEqual(f.getvalue(),
+                             "*** Unknown syntax: invalid_command\n")
 
 
 if __name__ == "__main__":
