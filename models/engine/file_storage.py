@@ -41,11 +41,10 @@ class FileStorage:
 
     def save(self):
         """Save/serialize obj dictionaries to json file"""
-        obj_dict = {}
-
-        for key, obj in type(self).__objects.items():
-            obj_dict[key] = obj.to_dict()
         with open(type(self).__file_path, 'w', encoding="UTF-8") as f:
+            obj_dict = {}
+            for key, obj in type(self).__objects.items():
+                obj_dict[key] = obj.to_dict()
             json.dump(obj_dict, f)
 
     def reload(self):
