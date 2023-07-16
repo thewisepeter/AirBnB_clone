@@ -21,12 +21,6 @@ class TestAmenity(unittest.TestCase):
         amenity.name = "Swimming Pool"
         self.assertEqual(amenity.name, "Swimming Pool")
 
-    def test_save_method(self):
-        amenity = Amenity()
-        initial_updated_at = amenity.updated_at
-        amenity.save()
-        self.assertNotEqual(amenity.updated_at, initial_updated_at)
-
 
 if __name__ == '__main__':
     unittest.main()

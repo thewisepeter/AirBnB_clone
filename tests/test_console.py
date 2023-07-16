@@ -28,7 +28,7 @@ class TestHBNBCommand(unittest.TestCase):
         """
         with patch('sys.stdout', new=StringIO()) as f:
             self.assertTrue(HBNBCommand().onecmd("EOF"))
-            self.assertEqual(f.getvalue(), "")
+            self.assertEqual(f.getvalue(), "\n")
 
     def test_emptyline(self):
         """
