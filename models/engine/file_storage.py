@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''AirBnB clone project File Storage'''
 import json
-import os
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -26,6 +25,9 @@ class FileStorage:
 
     __file_path = 'file.json'
     __objects = {}
+    class_dict = {"BaseModel": BaseModel, "User": User, "Place": Place,
+                  "Amenity": Amenity, "City": City, "Review": Review,
+                  "State": State}
 
     def all(self):
         '''Return dictionary of <class>.<id> : object instance'''
@@ -48,9 +50,11 @@ class FileStorage:
 
     def reload(self):
         """Deserialize/convert obj dicts back to instances, if it exists"""
-        if os.path.exists(type(self).__file__path):
+        try:
             with open(type(self).__file_path, 'r', encoding="UTF-8") as f:
-                for obj in json.load(f).values():
-                    self.new(eval(object['__class__'])(**object))
-        else:
-            return
+                new_obj_dict = json.load(f)
+                for key, value in new_obj_dict.items():
+                    obj = self.class_dict[value['__class__']](**value)
+                    type(self).__objects[key] = obj
+        except FileNotFoundError:
+            pass
