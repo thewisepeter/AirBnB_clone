@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''AirBnB clone project File Storage'''
 import json
+import os
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -50,6 +51,8 @@ class FileStorage:
 
     def reload(self):
         """Deserialize/convert obj dicts back to instances, if it exists"""
+        if os.path.exists(type(self).__file_path) is True:
+            return
         try:
             with open(type(self).__file_path, 'r', encoding="UTF-8") as f:
                 new_obj_dict = json.load(f)
