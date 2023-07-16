@@ -50,11 +50,11 @@ class FileStorage:
 
     def reload(self):
         """Deserialize/convert obj dicts back to instances, if it exists"""
-        try:
+        if os.path.exists(type(self).__file__path):
             with open(type(self).__file_path, 'r', encoding="UTF-8") as f:
                 new_obj_dict = json.load(f)
                 for key, value in new_obj_dict.items():
                     obj = self.class_dict[value['__class__']](**value)
                     type(self).__objects[key] = obj
-        except FileNotFoundError:
-            pass
+        else:
+            return
