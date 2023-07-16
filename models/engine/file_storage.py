@@ -41,23 +41,19 @@ class FileStorage:
 
     def save(self):
         """Save/serialize obj dictionaries to json file"""
-        obj_dict = []
-        for obj in type(self).__objects.values():
-            obj_dict.append(obj.to_dict())
-        #obj_dict = {}
-
-        # for key, obj in type(self).__objects.items():
-            #obj_dict[key] = obj.to_dict()
-        with open(type(self).__file_path, 'w', encoding="UTF-8") as f:
+        obj_dict = [obj.to_dict() for obj in self.__objects.values()]
+        with open(self.__file_path, 'w', encoding="UTF-8") as f:
             json.dump(obj_dict, f)
 
     def reload(self):
         """Deserialize/convert obj dicts back to instances, if it exists"""
         try:
-            with open(type(self).__file_path, 'r', encoding="UTF-8") as f:
+            with open(self.__file_path, 'r', encoding="UTF-8") as f:
                 new_obj_dict = json.load(f)
+            if new_obj_dict:
                 for key, value in new_obj_dict.items():
                     obj = self.class_dict[value['__class__']](**value)
-                    type(self).__objects[key] = obj
+                    self.__objects[key] = obj
         except FileNotFoundError:
             pass
+
