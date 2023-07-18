@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """AirBnB clone project File Storage"""
 import json
+import os
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -35,9 +36,10 @@ class FileStorage:
 
     def new(self, obj):
         """Set new __objects to existing dictionary of instances"""
-        if obj:
-            key = '{}.{}'.format(obj.__class__.__name__, obj.id)
-            type(self).__objects[key] = obj
+        if obj.id in type(self).__objects:
+            return
+        key = '{}.{}'.format(obj.__class__.__name__, obj.id)
+        type(self).__objects[key] = obj
 
     def save(self):
         """Save/serialize obj dictionaries to json file"""
@@ -50,11 +52,13 @@ class FileStorage:
 
     def reload(self):
         """Deserialize/convert obj dicts back to instances, if it exists"""
-        try:
-            with open(type(self).__file_path, 'r', encoding="UTF-8") as f:
-                new_obj_dict = json.load(f)
-                for key, value in new_obj_dict.items():
-                    obj = self.class_dict[value['__class__']](**value)
-                    type(self).__objects[key] = obj
+        if os.path.exists(type(self).__file_path) is True:
+            return
+            try:
+                with open(type(self).__file_path, 'r', encoding="UTF-8") as f:
+                    new_obj_dict = json.load(f)
+                    for key, value in new_obj_dict.items():
+                        obj = self.class_dict[value['__class__']](**value)
+                        type(self).__objects[key] = obj
         except FileNotFoundError:
             pass
