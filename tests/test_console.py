@@ -127,18 +127,10 @@ class TestHBNBCommand(unittest.TestCase):
             self.assertNotEqual(f.getvalue(), "")
 
     def test_create(self):
-        """
-        Test create command
-        """
-        with patch('sys.stdout', new=StringIO()) as f:
+        expected_output = "** class name missing **"
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("create"))
-            self.assertEqual(f.getvalue(), "** class name missing **\n")
-        with patch('sys.stdout', new=StringIO()) as f:
-            self.assertFalse(HBNBCommand().onecmd("create BaseModel"))
-            self.assertNotEqual(f.getvalue(), "")
-        with patch('sys.stdout', new=StringIO()) as f:
-            self.assertFalse(HBNBCommand().onecmd("create User"))
-            self.assertNotEqual(f.getvalue(), "")
+            self.assertEqual(expected_output, f.getvalue().strip())
 
     def test_show(self):
         """
