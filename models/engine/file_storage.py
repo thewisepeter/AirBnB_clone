@@ -36,8 +36,6 @@ class FileStorage:
 
     def new(self, obj):
         """Set new __objects to existing dictionary of instances"""
-        if obj.id in type(self).__objects:
-            return
         key = '{}.{}'.format(obj.__class__.__name__, obj.id)
         type(self).__objects[key] = obj
 
@@ -52,13 +50,12 @@ class FileStorage:
 
     def reload(self):
         """Deserialize/convert obj dicts back to instances, if it exists"""
-        if os.path.exists(type(self).__file_path) is True:
-            return
+        if os.path.exists(type(self).__file_path):
             try:
                 with open(type(self).__file_path, 'r', encoding="UTF-8") as f:
                     new_obj_dict = json.load(f)
                     for key, value in new_obj_dict.items():
                         obj = self.class_dict[value['__class__']](**value)
                         type(self).__objects[key] = obj
-        except FileNotFoundError:
-            pass
+            except FileNotFoundError:
+                pass
