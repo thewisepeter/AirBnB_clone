@@ -235,7 +235,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance3 = BaseModel()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all BaseModel")
+            HBNBCommand().onecmd("all BaseModel")
             output_str = output.getvalue().strip()
             self.assertIn(instance1.__str__(), output_str)
             self.assertIn(instance2.__str__(), output_str)
@@ -248,7 +248,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance3 = User()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all User")
+            HBNBCommand().onecmd("all User")
             output_str = output.getvalue().strip()
             self.assertIn(instance1.__str__(), output_str)
             self.assertIn(instance2.__str__(), output_str)
@@ -259,7 +259,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance = BaseModel()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all BaseModel")
+            HBNBCommand().onecmd("all BaseModel")
             output_str = output.getvalue().strip()
             self.assertIn(instance.__str__(), output_str)
 
@@ -267,7 +267,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance.name = "Updated Instance"
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all BaseModel")
+            HBNBCommand().onecmd("all BaseModel")
             output_str = output.getvalue().strip()
             self.assertIn(instance.__str__(), output_str)
     
@@ -278,7 +278,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance3 = Review()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all Review")
+            HBNBCommand().onecmd("all Review")
             output_str = output.getvalue().strip()
             self.assertIn(instance1.__str__(), output_str)
             self.assertIn(instance2.__str__(), output_str)
@@ -289,7 +289,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance = Review()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all Review")
+            HBNBCommand().onecmd("all Review")
             output_str = output.getvalue().strip()
             self.assertIn(instance.__str__(), output_str)
 
@@ -297,7 +297,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance.text = "Updated Review"
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all Review")
+            HBNBCommand().onecmd("all Review")
             output_str = output.getvalue().strip()
             self.assertIn(instance.__str__(), output_str)
 
@@ -308,7 +308,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance3 = State()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all State")
+            HBNBCommand().onecmd("all State")
             output_str = output.getvalue().strip()
             self.assertIn(instance1.__str__(), output_str)
             self.assertIn(instance2.__str__(), output_str)
@@ -319,7 +319,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance = State()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all State")
+            HBNBCommand().onecmd("all State")
             output_str = output.getvalue().strip()
             self.assertIn(instance.__str__(), output_str)
 
@@ -327,7 +327,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance.name = "Updated State"
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all State")
+            HBNBCommand().onecmd("all State")
             output_str = output.getvalue().strip()
             self.assertIn(instance.__str__(), output_str)
 
@@ -338,7 +338,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance3 = City()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all City")
+            HBNBCommand().onecmd("all City")
             output_str = output.getvalue().strip()
             self.assertIn(instance1.__str__(), output_str)
             self.assertIn(instance2.__str__(), output_str)
@@ -349,7 +349,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance = City()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all City")
+            HBNBCommand().onecmd("all City")
             output_str = output.getvalue().strip()
             self.assertIn(instance.__str__(), output_str)
 
@@ -357,7 +357,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance.name = "Updated City"
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all City")
+            HBNBCommand().onecmd("all City")
             output_str = output.getvalue().strip()
             self.assertIn(instance.__str__(), output_str)
     
@@ -368,7 +368,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance3 = Amenity()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all Amenity")
+            HBNBCommand().onecmd("all Amenity")
             output_str = output.getvalue().strip()
             self.assertIn(instance1.__str__(), output_str)
             self.assertIn(instance2.__str__(), output_str)
@@ -379,7 +379,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance = Amenity()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all Amenity")
+            HBNBCommand().onecmd("all Amenity")
             output_str = output.getvalue().strip()
             self.assertIn(instance.__str__(), output_str)
 
@@ -387,7 +387,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance.name = "Updated Amenity"
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all Amenity")
+            HBNBCommand().onecmd("all Amenity")
             output_str = output.getvalue().strip()
             self.assertIn(instance.__str__(), output_str)
 
@@ -398,7 +398,7 @@ class TestHBNBCommand(unittest.TestCase):
         instance3 = Place()
 
         with patch("sys.stdout", new=StringIO()) as output:
-            self.console.onecmd("all Place")
+            HBNBCommand().onecmd("all Place")
             output_str = output.getvalue().strip()
             self.assertIn(instance1.__str__(), output_str)
             self.assertIn(instance2.__str__(), output_str)
